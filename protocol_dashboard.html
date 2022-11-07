@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<!-- web3 and web3modal packages -->
+	<script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+	<!-- web3 functionality code -->
+	
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  
+  
+	<div id="initial">
+	  <a href="#" id="btn-connect" class="btn btn-primary">Connect Wallet</a>
+	</div>
+	
+	<div id="stats" style="display: none">
+	
+		<!-- 2D - collections Count -->
+		<div class="item collections_count">
+			<div class="label">Collections</div>
+			<span id="collections_count">-</span>
+		</div> 
+		<!-- 2G - Minted NFTs -->
+		<div class="item minted_nfts">
+			<div class="label">Minted NFTs</div>
+			<span id="minted_nfts_count">-</span>
+		</div> 
+		<!-- 2E - Monthly and yearly payouts -->
+		<div class="item apr">
+			<div class="label">Monthly Payouts</div>
+			<span id="monthly_payouts">-</span>
+		</div> 
+		<div class="item apr">
+			<div class="label">Yearly Payouts</div>
+			<span id="yearly_payouts">-</span>
+		</div> 
+		
+	</div>
+	
+	
+  
+	<div id="status" style="display: none;">
+		<div id='status_inner'>
+			<div id="close_popup">✖</div>
+			<div id='status_content'></div>
+		</div>
+	</div>
+	
+	
+	
+    <script type="module" src="protocol_dashboard.js"></script>
+  </body>
+</html>

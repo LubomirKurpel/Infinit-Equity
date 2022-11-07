@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<!-- web3 and web3modal packages -->
+	<script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+	<!-- web3 functionality code -->
+	
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+	
+	<h2>Claimni si své tokeny</h2>
+	<h3>Osobní odměny ke claimu</h3>
+	<div id="personal_rewards">-</div>
+	
+	<h3>Share-to-earn odměny ke claimu</h3>
+	<div id="share_to_earn_rewards">-</div>
+	
+	
+	
+	<h2>Stake your NFTs</h2>
+  
+	<div id="initial">
+	  <a href="#" id="btn-connect" class="btn btn-primary">Connect Wallet</a>
+	</div>
+	
+	<div id="stakable_nfts">
+		
+	</div>
+	
+	
+  
+	<div id="status" style="display: none;">
+		<div id='status_inner'>
+			<div id="close_popup">✖</div>
+			<div id='status_content'></div>
+		</div>
+	</div>
+	
+	
+	
+    <script type="module" src="staking_scripts.js"></script>
+  </body>
+</html>

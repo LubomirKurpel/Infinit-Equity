@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@crossmint/client-sdk-react-ui": "^0.2.0",
+    "@crossmint/client-sdk-vanilla-ui": "^0.1.0"
+  }
+}

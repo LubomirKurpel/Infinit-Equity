@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<!-- web3 and web3modal packages -->
+	<script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+	<!-- web3 functionality code -->
+	
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  
+  
+	<div id="initial">
+	  <a href="#" id="btn-connect" class="btn btn-primary">Connect Wallet</a>
+	</div>
+	
+	<div id="stats" style="display: none">
+	
+		<h2>My NFTs</h2>
+		
+		<!-- My NFTs -->
+		<div class="item my_nfts">
+			<div class="label">My NFTs</div>
+			<span id="my_nfts_count">-</span>
+		</div> 
+		<!-- My NFTs - Real estate -->
+		<div class="item my_nfts_real_estate">
+			<div class="label">My NFTs - Real estate</div>
+			<span id="my_nfts_real_estate">-</span>
+		</div> 
+		<!-- My NFTs - Term deposit -->
+		<div class="item my_nfts_term_deposit">
+			<div class="label">My NFTs - Term deposit</div>
+			<span id="my_nfts_term_deposit">-</span>
+		</div> 
+		<!-- My NFTs - Real estate -->
+		<div class="item my_nfts_other_nfts">
+			<div class="label">My NFTs - Other NFTs</div>
+			<span id="my_nfts_other_nfts">-</span>
+		</div> 
+		
+		
+		<h2>Total statistics and earnings</h2>
+		
+		<!-- Total statistics and earnings -->
+		<div class="item user_level">
+			<div class="label">User Level</div>
+			<span id="user_level">-</span>
+		</div> 
+		<!-- Total statistics and earnings -->
+		<div class="item user_level_name">
+			<div class="label">User Level Name</div>
+			<span id="user_level_name">-</span>
+		</div> 
+		
+		<!-- User total collected value -->
+		<div class="item user_total_collected_value">
+			<div class="label">User total collected value</div>
+			<span id="user_total_collected_value">-</span>
+		</div> 
+		
+		<!-- Remaining value -->
+		<div class="item remaining_value">
+			<div class="label">Remaining</div>
+			<span id="remaining_value">-</span>
+		</div> 
+		
+		
+		<!-- My NFTs earnings -->
+		<div class="item my_nft_earnings">
+			<div class="label">My NFTs earnings</div>
+			<span id="my_nft_earnings">-</span>
+		</div> 
+		<!-- My NFTs earnings -->
+		<div class="item team_earnings">
+			<div class="label">Team earnings</div>
+			<span id="team_earnings">-</span>
+		</div> 
+		<!-- Total earnings -->
+		<div class="item total_earnings">
+			<div class="label">Total earnings</div>
+			<span id="total_earnings">-</span>
+		</div> 
+		
+		
+		<h2>My NFTs Earnings</h2>
+		
+		<!-- Total number of NFTs -->
+		<div class="item total_number_of_nfts">
+			<div class="label">Total number of NFTs</div>
+			<span id="total_number_of_nfts">-</span>
+		</div> 
+		
+		<!-- Number of collections -->
+		<div class="item number_of_collections">
+			<div class="label">Number of collections</div>
+			<span id="number_of_collections">-</span>
+		</div> 
+		
+		<!-- Combined APR (P.a.) -->
+		<div class="item combined_apr">
+			<div class="label">Combined APR (P.a.)</div>
+			<span id="combined_apr">-</span>
+		</div> 
+		
+		<!-- Est. monthly earnings -->
+		<div class="item est_monthly_earnings">
+			<div class="label">Est. monthly earnings</div>
+			<span id="est_monthly_earnings">-</span>
+		</div> 
+		
+		<!-- Est. yearly earnings -->
+		<div class="item est_monthly_earnings">
+			<div class="label">Est. yearly earnings</div>
+			<span id="est_yearly_earnings">-</span>
+		</div> 
+		
+		
+		<h2>Personal</h2>
+		
+		<!-- Personal Partners -->
+		<div class="item personal_partners">
+			<div class="label">Personal Partners</div>
+			<span id="personal_partners">-</span>
+		</div> 
+		<!-- Personal Clients -->
+		<div class="item personal_clients">
+			<div class="label">Personal Clients</div>
+			<span id="personal_clients">-</span>
+		</div> 
+		<!-- Personal NFT sales -->
+		<div class="item personal_nft_sales">
+			<div class="label">Personal NFT sales</div>
+			<span id="personal_nft_sales">-</span>
+		</div> 
+		<!-- Personal volume -->
+		<div class="item personal_volume">
+			<div class="label">Personal volume</div>
+			<span id="personal_volume">-</span>
+		</div> 
+		<!-- Total Rewards -->
+		<div class="item total_rewards">
+			<div class="label">Total Rewards</div>
+			<span id="total_rewards">-</span>
+		</div> 
+		
+		
+		<h2>Team</h2>
+		
+		<!-- Team Partners -->
+		<div class="item team_partners">
+			<div class="label">Team Partners</div>
+			<span id="team_partners">-</span>
+		</div> 
+		<!-- Team Clients -->
+		<div class="item team_clients">
+			<div class="label">Team Clients</div>
+			<span id="team_clients">-</span>
+		</div> 
+		<!-- Personal NFT sales -->
+		<div class="item team_nft_sales">
+			<div class="label">Team NFT sales</div>
+			<span id="team_nft_sales">-</span>
+		</div> 
+		<!-- Personal volume -->
+		<div class="item team_production">
+			<div class="label">Team production</div>
+			<span id="team_production">-</span>
+		</div> 
+		
+		
+		
+	</div>
+	
+	
+  
+	<div id="status" style="display: none;">
+		<div id='status_inner'>
+			<div id="close_popup">✖</div>
+			<div id='status_content'></div>
+		</div>
+	</div>
+	
+	
+	
+    <script type="module" src="my_dashboard_scripts.js"></script>
+  </body>
+</html>

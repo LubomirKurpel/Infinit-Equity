@@ -1,0 +1,69 @@
+{
+	"staking_contracts": [
+		"keyContract",
+		"coFounderContract"
+	],
+	"real_estate_nfts": [
+		{
+			"key": "realEstateContract"
+		}
+	],
+	"other_nfts": [
+		{
+			"key": "keyContract"
+		},
+		{
+			"key": "coFounderContract"
+		}
+	],
+	"levels": [
+		{
+			"level": "1",
+			"name": "Koncipient",
+			"volume":"0",
+			"provision":"450"
+		},
+		{
+			"level": "2",
+			"name": "Sales Representative",
+			"volume":"30000",
+			"provision":"600"
+		},
+		{
+			"level": "3",
+			"name": "Junior Manager",
+			"volume":"90000",
+			"provision":"750"
+		},
+		{
+			"level": "4",
+			"name": "Manager",
+			"volume":"270000",
+			"provision":"900"
+		},
+		{
+			"level": "5",
+			"name": "Senior Manager",
+			"volume":"1000000",
+			"provision":"1050"
+		},
+		{
+			"level": "6",
+			"name": "Regional Director",
+			"volume":"2700000",
+			"provision":"1200"
+		},
+		{
+			"level": "7",
+			"name": "National Director",
+			"volume":"7000000",
+			"provision":"1350"
+		},
+		{
+			"level": "8",
+			"name": "Sales Director",
+			"volume":"15000000",
+			"provision":"1500"
+		}
+	]
+}

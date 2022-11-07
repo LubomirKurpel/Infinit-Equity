@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<!-- web3 and web3modal packages -->
+	<script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+	<!-- web3 functionality code -->
+	
+	<script src="https://unpkg.com/@crossmint/client-sdk-vanilla-ui@0.1.0/lib/index.global.js"></script>
+	
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  
+  
+	<div id="initial">
+	  <a href="#" id="btn-connect" class="btn btn-primary">Connect Wallet</a>
+	</div>
+	<div id="mint" style="display: none">
+	  <a href="#" id="btn-mint" class="btn btn-primary">Mint Genesis</a>
+	</div>
+	
+	
+	<!--
+	  Place the button somewhere where it's visible even
+	  if the user hasn't connected their wallet 
+	-->
+	
+	<!-- Referral here -->
+	<crossmint-pay-button
+		clientId="b9325359-7697-454e-8392-09d60061a74f"
+		mintConfig='{"type":"erc-721","totalPrice":"25","referral":""}' 
+		environment="staging"
+	/>
+	
+  
+	<div id="mint_status" style="display: none;">
+		<div id='mint_status_inner'>
+			<div id="close_popup">✖</div>
+			<div id='mint_status_content'></div>
+		</div>
+	</div>
+	
+	
+	
+    <script src="scripts.js"></script>
+  </body>
+</html>

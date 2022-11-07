@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<!-- web3 and web3modal packages -->
+	<script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+	<!-- web3 functionality code -->
+	
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+	
+	<h2>Set your referral</h2>
+  
+	<div id="initial">
+	  <a href="#" id="btn-connect" class="btn btn-primary">Connect Wallet</a>
+	</div>
+	
+	<div id="referral_container" style="display: none;">
+		<input type="text" id="referral" name="referral"><br>
+		<input type="submit" id="referral_submit" value="Submit">
+	</div>
+	
+	
+  
+	<div id="status" style="display: none;">
+		<div id='status_inner'>
+			<div id="close_popup">✖</div>
+			<div id='status_content'></div>
+		</div>
+	</div>
+	
+	
+	
+    <script type="module" src="referral_scripts.js"></script>
+  </body>
+</html>
