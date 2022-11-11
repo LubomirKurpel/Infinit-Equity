@@ -189,25 +189,23 @@ async function onConnect() {
 			// Countup types of NFTs
 			for (var num in global.config.real_estate_nfts) {
 				
-				if (global.config.real_estate_nfts[num].key == key) {
+				if (global.config.real_estate_nfts[num] == key) {
 					real_estate_nfts += parseInt(contractBalance);
 				}
 				
 			}
-			/*
-			// None for now
 			
 			for (var num in global.config.term_deposit_nfts) {
 				
-				if (global.config.real_estate_nfts[num].key == key) {
+				if (global.config.real_estate_nfts[num] == key) {
 					real_estate_nfts++;
 				}
 				
 			}
-			*/
+			
 			for (var num in global.config.other_nfts) {
 				
-				if (global.config.other_nfts[num].key == key) {
+				if (global.config.other_nfts[num] == key) {
 					other_nfts += parseInt(contractBalance);
 				}
 				
