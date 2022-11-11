@@ -2,16 +2,12 @@
 import * as global from './global.js';
 
 // Web3modal function
-let web3, web3Modal, userAddress;
+let web3, web3Modal;
 
 async function onConnect() {
 
-	var provider = new Web3.providers.HttpProvider("https://goerli.infura.io/v3/a1f9d20f43be46fa9a70cf8adee30ef4");
+	var provider = new Web3.providers.HttpProvider("https://matic.getblock.io/14f2f29a-600f-4e3a-8274-ae8720e03d4a/testnet/");
 	web3 = new Web3(provider);
-
-	const accounts = await web3.eth.getAccounts();
-
-	userAddress = accounts[0];
 
 	const chainId = await web3.eth.getChainId();
 
@@ -149,5 +145,6 @@ function hideStatus() {
 
 /*
 document.getElementById('btn-connect').addEventListener('click', onConnect);
+
 document.getElementById('close_popup').addEventListener('click', hideStatus);
 */
