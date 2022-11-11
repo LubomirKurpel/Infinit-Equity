@@ -157,7 +157,7 @@ async function onConnect() {
 							
 						});
 						
-						if (childStruct.collection = global.env.keyContract) {
+						if (childStruct.collection == global.env.keyContract) {
 							
 							// Is key contract child
 							personalPartners++;
