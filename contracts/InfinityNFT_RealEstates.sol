@@ -89,9 +89,10 @@ contract InfinitEquity_RealEstates is ERC721, ERC721Enumerable, ReentrancyGuard,
     bytes32 public constant CONTRACT_ROLE = keccak256("CONTRACT_ROLE");
 	
     uint public total = 0;
+	uint public maxTokens = 50;
 	
 	uint USDC_Decimals = 6;
-	uint public price = 1000*10**USDC_Decimals;
+	uint public price = 25*10**USDC_Decimals;
 	uint public APR;
 	
 	function setAPR(uint _apr) external onlyRole(ALLOWED_ROLE) {
@@ -206,17 +207,21 @@ contract InfinitEquity_RealEstates is ERC721, ERC721Enumerable, ReentrancyGuard,
 		return Strings.toString(_tokenId);
 	}
 	
-	function mintKey(string memory referral) public nonReentrant payable {
+	function mintKey(uint quantity, string memory referral) public nonReentrant payable {
 		
-        total++;
+		require(total + quantity < maxTokens, "Mint over the max tokens limit");
 		
-		// Mint the token
-        _lockedMint(_msgSender(), total);
-		
-		// Send the token to Referral Contract
-		IReferralContract _ReferralContract = IReferralContract(referralContractAddress);
+		for (uint i = 0; i < quantity; i++) {
+			total++;
 			
-		_ReferralContract.onMint(_msgSender(), total, referral, price, false);
+			// Mint the token
+			_lockedMint(_msgSender(), total);
+			
+			// Send the token to Referral Contract
+			IReferralContract _ReferralContract = IReferralContract(referralContractAddress);
+				
+			_ReferralContract.onMint(_msgSender(), total, referral, price, false);
+		}
 		
     }
 	
@@ -231,35 +236,44 @@ contract InfinitEquity_RealEstates is ERC721, ERC721Enumerable, ReentrancyGuard,
 	
 	using SafeERC20 for IERC20;
 	
-	function crossmint(address to, string memory referral) public payable {
+	function crossmint(address to, uint quantity, string memory referral) public payable {
 		
+		require(total + quantity < maxTokens, "Mint over the max tokens limit");
 		require(msg.sender == crossmintAddress, "This function is for Crossmint only.");
-		
-		total++;
 		
 		// Get Referral Contract
 		IReferralContract _ReferralContract = IReferralContract(referralContractAddress);
 		
 		// Check if user has enough USDC
 		address USDCAddress = _ReferralContract.USDCAddress();
-		require(IERC20(USDCAddress).balanceOf(_msgSender()) >= price, "Insufficient USDC Funds.");
+		require(IERC20(USDCAddress).balanceOf(_msgSender()) >= price * quantity, "Insufficient USDC Funds.");
 		
-		// Send USDC directly to treasury
-		address TreasuryAddress = _ReferralContract.TreasuryAddress();
-		IERC20(USDCAddress).safeTransferFrom(_msgSender(), TreasuryAddress, price);
+		for (uint i = 0; i < quantity; i++) {
 		
-		// Mint the token
-        _lockedMint(to, total);
+			total++;
 		
-		// Skipping transfer in Referral contract
-		_ReferralContract.onMint(_msgSender(), total, referral, price, true);
+			// Send USDC directly to treasury
+			address TreasuryAddress = _ReferralContract.TreasuryAddress();
+			IERC20(USDCAddress).safeTransferFrom(_msgSender(), TreasuryAddress, price);
+			
+			// Mint the token
+			_lockedMint(to, total);
+			
+			// Skipping transfer in Referral contract
+			_ReferralContract.onMint(_msgSender(), total, referral, price, true);
+		
+		}
 		
 	}
 	
-	function mintKeyAdmin(address _targetAddress) public onlyRole(ALLOWED_ROLE) {
+	function mintKeyAdmin(address _targetAddress, uint quantity) public onlyRole(ALLOWED_ROLE) {
 		
-		total++;
-		_lockedMint(_targetAddress, total);
+		for (uint i = 0; i < quantity; i++) {
+			
+			total++;
+			_lockedMint(_targetAddress, total);
+		
+		}
 		
     }
 	
