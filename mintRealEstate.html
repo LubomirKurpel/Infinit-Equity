@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<!-- web3 and web3modal packages -->
+	<script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+	<!-- web3 functionality code -->
+	
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+	
+	<h2>Mint Real Estate for 25$</h2>
+  
+	<div id="initial">
+	  <a href="#" id="btn-connect" class="btn btn-primary">Connect Wallet</a>
+	</div>
+	
+	<div id="mint" style="display: none">
+		<input type="number" value="1" id="quantity"/>
+		<button id="btn-mint" class="btn-primary btn w-full text-base uppercase">MINT</button>
+	</div>
+	<div id="approve" style="display: none">
+		<button id="btn-approve" class="btn-primary btn w-full text-base uppercase">APPROVE</button>
+	</div>
+	
+	
+  
+	<div id="status" style="display: none;">
+		<div id='status_inner'>
+			<div id="close_popup">✖</div>
+			<div id='status_content'></div>
+		</div>
+	</div>
+	
+	
+	
+    <script type="module" src="mintRealEstate_scripts.js"></script>
+  </body>
+</html>
