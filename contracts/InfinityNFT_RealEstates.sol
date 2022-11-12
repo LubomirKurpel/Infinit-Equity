@@ -114,6 +114,10 @@ contract InfinitEquity_RealEstates is ERC721, ERC721Enumerable, ReentrancyGuard,
         price = _price*10**USDC_Decimals;
     }
 	
+	function setMaxTokens(uint _maxTokens) external onlyRole(ALLOWED_ROLE) {
+		maxTokens = _maxTokens;
+	}
+	
 	function supportsInterface(bytes4 interfaceId) public view virtual override(ERC721, ERC721Enumerable, AccessControl) returns (bool) {
         return super.supportsInterface(interfaceId);
     }
@@ -209,7 +213,7 @@ contract InfinitEquity_RealEstates is ERC721, ERC721Enumerable, ReentrancyGuard,
 	
 	function mintKey(uint quantity, string memory referral) public nonReentrant payable {
 		
-		require(total + quantity < maxTokens, "Mint over the max tokens limit");
+		require(total + quantity <= maxTokens, "Mint over the max tokens limit");
 		
 		for (uint i = 0; i < quantity; i++) {
 			total++;
@@ -238,7 +242,7 @@ contract InfinitEquity_RealEstates is ERC721, ERC721Enumerable, ReentrancyGuard,
 	
 	function crossmint(address to, uint quantity, string memory referral) public payable {
 		
-		require(total + quantity < maxTokens, "Mint over the max tokens limit");
+		require(total + quantity <= maxTokens, "Mint over the max tokens limit");
 		require(msg.sender == crossmintAddress, "This function is for Crossmint only.");
 		
 		// Get Referral Contract
