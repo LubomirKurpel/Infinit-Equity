@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "hardhat/console.sol";
+// import "hardhat/console.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
@@ -248,11 +248,16 @@ contract InfinityNFT_Referrals is Ownable, AccessControl {
 				bytes32 _hash = keccak256(abi.encodePacked(_referralNft.collection, _referraltokenId, _referralNft.numberOfChildren));
 				child[_hash] = _mintedNFT_hash;
 				
+				// console.logBytes32(_hash);
+				
 				// Increment number of children of referral NFT
 				_referralNft.numberOfChildren++;
 				
 				// Save to storage
 				allNFTs[_referralNft_hash] = _referralNft;
+				
+				// console.log(_referralNft.collection, _referraltokenId, _referralNft.numberOfChildren);
+				// console.logBytes32(_mintedNFT_hash);
 				
 				if (amount > 0) {
 					// Add totalCollectedValue to all the parent's addresses, this might get gas inefficient quickly but we have no other option because of other logic
@@ -334,6 +339,16 @@ contract InfinityNFT_Referrals is Ownable, AccessControl {
 						// Get hash of referral NFT parent Level 1
 						bytes32 _referralNft_hash = keccak256(abi.encodePacked(ContractAddresses[i], _referraltokenId));
 						NFT memory _referralNft = allNFTs[_referralNft_hash];
+									
+						// Calculate the hash of child for mapping, because array resizing in storage is not yet supported, quite a hack
+						bytes32 _hash = keccak256(abi.encodePacked(_referralNft.collection, _referraltokenId, _referralNft.numberOfChildren));
+						child[_hash] = _mintedNFT_hash;
+						
+						// Increment number of children of referral NFT
+						_referralNft.numberOfChildren++;
+						
+						// Save to storage
+						allNFTs[_referralNft_hash] = _referralNft;
 						
 						uint _amount_stack = amount; // Fix for Stack too deep error
 						
