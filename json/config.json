@@ -4,7 +4,7 @@
 		"coFounderContract"
 	],
 	"real_estate_nfts": [
-		"realEstateContract"
+		"realEstatesContract"
 	],
 	"term_deposit_nfts": [
 		"termDepositContract"
