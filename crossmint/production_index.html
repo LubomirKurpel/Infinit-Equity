@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<!-- web3 and web3modal packages -->
+	<script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+	<!-- web3 functionality code -->
+	
+	<script src="https://unpkg.com/@crossmint/client-sdk-vanilla-ui@0.1.0/lib/index.global.js"></script>
+	
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  
+	<!--
+	  Place the button somewhere where it's visible even
+	  if the user hasn't connected their wallet 
+	-->
+	
+	
+	<h2>Infinit Key</h2>
+	<crossmint-pay-button
+		clientId="eca04e68-7586-474b-848d-e5c0a789d500"
+		mintConfig='{"type":"erc-721","totalPrice":"25","quantity":"1","referral":""}' 
+	/>
+	
+	<h2>Infinit Equity - Real Estates 1.1</h2>
+	<crossmint-pay-button
+		clientId="3bfee611-c06e-493c-9e22-1a991807b2a3"
+		mintConfig='{"type":"erc-721","totalPrice":"25","quantity":"1","referral":""}' 
+	/>
+	
+	<h2>Infinit Equity - Term Deposit 1.1</h2>
+	<crossmint-pay-button
+		clientId="8cea0438-e6d2-489c-97e6-58cc860443c0"
+		mintConfig='{"type":"erc-721","totalPrice":"25","quantity":"1","referral":""}' 
+	/>
+	
+	
+    <script src="scripts.js"></script>
+  </body>
+</html>
