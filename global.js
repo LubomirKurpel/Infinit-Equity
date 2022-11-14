@@ -1,5 +1,5 @@
 /* MUMBAI TESTNET */
-export const chainID = 80001; // 5 for goerli testnet, 80001 for mumbai testnet, 137 for polygon mainnet
+export const chainID = 137; // 5 for goerli testnet, 80001 for mumbai testnet, 137 for polygon mainnet
 
 
 // Load env.json
