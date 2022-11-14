@@ -6,7 +6,7 @@ let web3, web3Modal;
 
 async function onConnect() {
 
-	var provider = new Web3.providers.HttpProvider("https://matic.getblock.io/14f2f29a-600f-4e3a-8274-ae8720e03d4a/testnet/");
+	var provider = new Web3.providers.HttpProvider("https://polygon-mainnet.g.alchemy.com/v2/3lpNl_GSFhIUuyTG-4sE8JzkHpvbKt6R");
 	web3 = new Web3(provider);
 
 	const chainId = await web3.eth.getChainId();
