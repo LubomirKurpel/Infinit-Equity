@@ -133,12 +133,15 @@ async function onConnect() {
 
 async function onApprove() {
 	
+	var gasPrice = await web3.eth.getGasPrice(function(e, r) { console.log(r); return r; });
+
 	// Approve ide na Referral kontrakt vzdy!
 	var USDC_Contract = await global.getContract(web3, "USDC_Contract");
 		
 	// Approve
 	await USDC_Contract.methods.approve(global.env.referralContract, 100*1000*1000*10**USDC_decimals).send({ // 100 mil. bude dostatok navzdy
-		from: userAddress
+		from: userAddress,
+		gasPrice: gasPrice
 	}).on('confirmation', function() {
 		
 		// Po approve zobrazime mint button
@@ -151,13 +154,16 @@ async function onApprove() {
 
 async function onMint() {
 	
+	var gasPrice = await web3.eth.getGasPrice(function(e, r) { console.log(r); return r; });
+	
 	var keyContract = await global.getContract(web3, "keyContract");
 	
 	// send
 	
 	// Do funkcie "mintKey" ide referral!! Prázdny string prejde tiež, referral prejde len ak existuje!
 	await keyContract.methods.mintKey("").send({
-		from: userAddress
+		from: userAddress,
+		gasPrice: gasPrice
 	}).on('confirmation', function() {
 
 		// success
