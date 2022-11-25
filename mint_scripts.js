@@ -156,6 +156,8 @@ async function onMint() {
 	
 	var gasPrice = await web3.eth.getGasPrice(function(e, r) { console.log(r); return r; });
 	
+	gasPrice = web3.utils.toBN(gasPrice).mul(web3.utils.toBN(2)).toString();
+	
 	var keyContract = await global.getContract(web3, "keyContract");
 	
 	// send
